@@ -1,0 +1,114 @@
+{
+  "name": "doctest-this-function",
+  "displayName": "Python Doctest: This Function",
+  "description": "Right-click a Python function to run only its doctests.",
+  "version": "1.0.0",
+  "publisher": "mrsharp",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Testing"
+  ],
+  "keywords": [
+    "python",
+    "doctest",
+    "test",
+    "function"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "doctestThisFunction.run",
+        "title": "Doctest This Function"
+      },
+      {
+        "command": "doctestThisFunction.function.all",
+        "title": "This Function: Show All",
+        "category": "Doctest"
+      },
+      {
+        "command": "doctestThisFunction.function.failures",
+        "title": "This Function: Failures Only",
+        "category": "Doctest"
+      },
+      {
+        "command": "doctestThisFunction.function.first",
+        "title": "This Function: Stop at First Failure",
+        "category": "Doctest"
+      },
+      {
+        "command": "doctestThisFunction.file.all",
+        "title": "Whole File: Show All",
+        "category": "Doctest"
+      },
+      {
+        "command": "doctestThisFunction.file.failures",
+        "title": "Whole File: Failures Only",
+        "category": "Doctest"
+      },
+      {
+        "command": "doctestThisFunction.file.first",
+        "title": "Whole File: Stop at First Failure",
+        "category": "Doctest"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "doctestThisFunction.run",
+          "when": "editorLangId == python",
+          "group": "navigation@0.1"
+        },
+        {
+          "submenu": "doctestThisFunction.menu",
+          "when": "editorLangId == python",
+          "group": "navigation@0.2"
+        }
+      ],
+      "doctestThisFunction.menu": [
+        {
+          "command": "doctestThisFunction.function.all",
+          "group": "1_function@1"
+        },
+        {
+          "command": "doctestThisFunction.function.failures",
+          "group": "1_function@2"
+        },
+        {
+          "command": "doctestThisFunction.function.first",
+          "group": "1_function@3"
+        },
+        {
+          "command": "doctestThisFunction.file.all",
+          "group": "2_file@1"
+        },
+        {
+          "command": "doctestThisFunction.file.failures",
+          "group": "2_file@2"
+        },
+        {
+          "command": "doctestThisFunction.file.first",
+          "group": "2_file@3"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Python Doctest: This Function",
+      "properties": {
+        "doctestThisFunction.pythonPath": {
+          "type": "string",
+          "default": "python3",
+          "description": "Command used to run Python (e.g. python3, python, or a full path). If you leave this alone, Windows uses `python` and everything else uses `python3`."
+        }
+      }
+    },
+    "submenus": [
+      {
+        "id": "doctestThisFunction.menu",
+        "label": "Doctest This…"
+      }
+    ]
+  }
+}
