@@ -8,8 +8,10 @@ You already have VSCodium set up. This adds one new feature: **right-click a fun
 2. Open a terminal: **Terminal ▸ New Terminal**.
 3. Paste both lines, then press Enter:
 
-```
+```bash
 curl -fsSL -o /tmp/doctest-this-function.vsix https://github.com/mrsharp-milken/cs50-workspace/raw/main/.setup/doctest-this-function-1.0.0.vsix
+```
+```bash
 codium --install-extension /tmp/doctest-this-function.vsix --profile mrsharp-student
 ```
 
